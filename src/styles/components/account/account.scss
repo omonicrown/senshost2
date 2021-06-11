@@ -1,0 +1,134 @@
+.account-container {
+    background-color: $header-background;
+    height: 100%;
+    width: 100%;
+    // background-image: url("../../../assets/images/login-register.jpg");
+
+    .container-fluid {
+        height: 100%;
+		padding: 0;
+        .menu-holder {
+            padding: 1rem 2rem;
+            justify-content: space-between;
+
+            .account-holder {
+
+                justify-content: flex-end;
+
+                button {
+                    color: $white;
+                }
+            }
+        }
+
+        .account-forms {
+            @import "./forms/forms.scss";
+        }
+
+        .company-info-holder {
+            height: 100%;
+            overflow-y: auto;
+
+            .container {
+                height: 100%;
+
+                .row {
+                    .col {
+                        h1 {
+                            color: $white;
+                            font-size: calculateRem(71);
+                            line-height: calculateRem(79);
+                            letter-spacing: calculateRem(-1);
+                            font-weight: bold;
+                        }
+
+                        .app-intro-desc {
+                            margin: calculateRem(20) 0rem;
+                            font-size: calculateRem(30);
+                            line-height: calculateRem(36);
+                            max-width: 100%;
+
+                            -webkit-font-smoothing: antialiased;
+                            font-weight: 400;
+                        }
+
+                        #contactusBtn {
+                            margin: calculateRem(20) 0rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    .account-container {
+        .container-fluid {
+            .menu-holder {
+                padding: 0rem;
+            }
+
+            .company-info-holder {
+                .container {
+                    .row {
+                        .col {
+                            h1 {
+                                font-size: calculateRem(18);
+                                line-height: 2rem;
+                            }
+
+                            .app-intro-desc {
+                                line-height: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1025px) {
+    .account-container {
+        .container-fluid {
+            .container {
+                &.company-info-holder {
+                    .row {
+                        .col {
+                            h1 {
+                                font-size: calculateRem(71);
+                                line-height: calculateRem(79);
+                                letter-spacing: calculateRem(-1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 801px) {
+    .account-container {
+        .container-fluid {
+            .container {
+                &.company-info-holder {
+                    .row {
+                        .col {
+                            h1 {
+                                font-size: calculateRem(50);
+                                line-height: calculateRem(60);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

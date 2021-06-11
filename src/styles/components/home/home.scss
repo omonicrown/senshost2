@@ -1,0 +1,216 @@
+.home-container {
+    height: 100%;
+    @import "../shared/header.scss";
+
+    .main-body {
+        height: 100%;
+        width: 100%;
+
+        aside {
+            &.left-side-container {
+                height: calc(100% - #{$header-height});
+                box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+                border-right: 1px solid rgba(0, 0, 0, 0.12);
+                position: relative;
+                transition: width $transition_time;
+
+                &.sidemenu-opened {
+                    z-index: 2;
+
+                    > .sidebar-content {
+                        width: $aside-width;
+                        opacity: 1;
+                        overflow: visible;
+                        height: 100%;
+                        @include setPagePadding(20);
+                    }
+
+                    &:before {
+                        width: $aside-width;
+                    }
+                }
+
+                &.sidemenu-closed {
+                    > .sidebar-content {
+                        padding: 0rem;
+                        width: 0rem;
+                        opacity: 0;
+                    }
+
+                    &:before {
+                        width: 0rem;
+                    }
+                }
+
+                .sidebar-content {
+                    transition: width $transition_time, padding $transition_time, opacity $transition_time;
+                    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+                    color: $header-background;
+                    overflow: hidden;
+                    white-space: nowrap;
+
+                    .row {
+                        .sidebar-sticky {
+                            ul {
+                                li {
+                                    padding: 0.4rem 0px;
+
+                                    a {
+                                        &:not(.active) {
+                                            color: inherit;
+                                        }
+
+                                        svg {
+                                            fill: currentcolor;
+                                        }
+                                    }
+
+                                    .title-holder {
+                                        align-items: center;
+
+                                        .icon-holder {
+                                            margin-right: 0.5rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        main {
+            background-color: $white;
+
+            &.main-container {
+                height: calc(100% - #{$header-height});
+                width: 100%;
+                overflow-y: hidden;
+                overflow-x: hidden;
+
+                // table override
+                @import "../shared/table.scss";
+
+                //card-container
+                .card {
+                    margin: calculateRem(16) 0;
+
+                    // .table-responsive {
+                    //     overflow-x: visible;
+                    // }
+                }
+
+                .page-title {
+                    .col {
+                        padding: 1rem 0;
+                    }
+                }
+
+                // overide text value font
+                .text-label {
+                    .custom-label-value {
+                        font-weight: normal;
+                    }
+                }
+
+                &.sidemenu-opened {
+                    width: calc(100% - #{$aside-width});
+                }
+
+                > .main-holder {
+                    overflow-y: hidden;
+                    height: 100%;
+
+                    > .container-fluid {
+                        // width: 100%;
+                       // min-height: calc(100% - 60px);
+                        height: calc(100% - #{$footer-height});
+                        overflow-y: auto;
+                        // margin: 1.25rem auto;
+
+                        .table-filter-and-control-holder {
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 1rem 0;
+                            padding: 1rem 0;
+                            //border-bottom: 1px solid $blue;
+
+                            .dropdown {
+                                min-width: calculateRem(200);
+                            }
+                        }
+
+                        @import "../dashboard/dashboard.scss";
+                        @import "../device/device.scss";
+                        @import "../users/users.scss";
+                        @import "../viewDevice/vewDevice.scss";
+                        @import "../rules/rules.scss";
+                    }
+
+                    footer {
+                        &.footer-container {
+                            background: $header-background;
+                            color: $white;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            border-top: 1px solid $gray-300;
+                            width: 100%;
+
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    .home-container {
+        .main-body {
+            main {
+                &.main-container {
+                    &.sidemenu-opened {
+                        width: 100%;
+                    }
+                }
+            }
+
+            aside {
+                &.left-side-container {
+                    &.sidemenu-opened {
+                        width: 100%;
+
+                        > .sidebar-content {
+                            width: 100%;
+                        }
+
+                        &:before {
+                            width: 100%;
+                        }
+
+                        > .hamburger-icon {
+                            transform: translateX(calculateRem(-60));
+                        }
+
+                        & + * {
+                            width: 0;
+                            height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            transition: all $transition_time;
+                        }
+                    }
+
+                    &.sidemenu-closed {
+                        width: 0;
+                    }
+                }
+            }
+        }
+    }
+}

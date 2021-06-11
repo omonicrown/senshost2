@@ -1,0 +1,85 @@
+@import "~@sebgroup/bootstrap/scss/core";
+@import "~@sebgroup/bootstrap/scss/bootstrap";
+@import "~@sebgroup/bootstrap/scss/_variables";
+@import "./components/shared/mixins.scss";
+@import "./components/shared/variables.scss";
+
+body {
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    @include fontSize(16);
+
+    .main-app-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background-color: $white;
+        // override seb bootstrap make margin bottom for p
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        @import "./components/home/home.scss";
+        @import "./components/account/account.scss";
+    }
+}
+
+/**  modal*/
+.modal-dialog {
+
+    //height: 100%;
+    .modal-content {
+
+        //  height: 100%;
+        .modal-body {
+            >form {
+                .controls-holder {
+                    margin-top: 2rem;
+                    justify-content: space-between;
+                }
+
+            }
+
+            // overide text value font
+            .text-label {
+                .custom-label-value {
+                    font-weight: normal;
+                }
+            }
+
+            //card-container
+            .card {
+                margin: calculateRem(16) 0;
+            }
+        }
+    }
+}
+
+.modal-footer {
+    >.controls-holder {
+        width: 100%;
+        margin-top: 2rem;
+        justify-content: space-between;
+    }
+}
+
+/**
+* TODO: This should be removed when the dropdown is updated
+*/
+
+.dropdown.custom-dropdown {
+    .dropdown-menu.custom-dropdown-menu {
+        max-height: 280px;
+    }
+
+    >.dropdown-toggle.custom-dropdown-toggle {
+        height: 42px;
+    }
+}

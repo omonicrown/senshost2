@@ -1,0 +1,78 @@
+.rules-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    > .rules-holder {
+        width: 100%;
+        border-top: 1px solid $gray-300;
+        height: calc(100% - 0.5rem);
+        .rule-engine-body {
+            flex-direction: row;
+            flex-grow: 1;
+            height: 100%;
+            > .reactflow-wrapper {
+                flex-grow: 1;
+                height: 100%;
+
+                .controls-holder {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    z-index: 4;
+                    font-size: 12px;
+
+                    button {
+                        margin-left: 5px;
+                    }
+                }
+            }
+            > aside {
+                width: 25%;
+                max-width: calculateRem(250);
+                height: 100%;
+                &.properties-holder {
+                    border-left: 1px solid #eee;
+                }
+                &.controls-holder {
+                    border-right: 1px solid #eee;
+
+                    .title {
+                        border-bottom: 1px solid $gray-300;
+                        padding: 0.5rem 0;
+                        margin: 1rem 0;
+                    }
+                }
+                padding: calculateRem(15) calculateRem(10);
+                font-size: 12px;
+                background: #fcfcfc;
+
+                > .description {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .rule-node {
+                height: calculateRem(30);
+                padding: 4px;
+                border: 1px solid #1a192b;
+                border-radius: 2px;
+                margin-bottom: calculateRem(10);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: grab;
+                &.input {
+                    border-color: #0041d0;
+
+                    &.trigger-node {
+                        background-color: #eee;
+                    }
+                }
+
+                &.output {
+                    border-color: #ff0072;
+                }
+            }
+        }
+    }
+}

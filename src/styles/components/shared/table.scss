@@ -1,0 +1,28 @@
+table {
+    border-bottom: none;
+
+    tbody {
+        tr {
+            .action-column {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            td {
+                .pagination {
+                    margin-bottom: 0;
+                    justify-content: flex-end;
+                    li {
+                        button {
+                            max-height: 35px;
+                            z-index: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

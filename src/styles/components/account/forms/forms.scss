@@ -1,0 +1,19 @@
+form {
+    &.account-forms-container {
+        position: relative;
+        height: calculateRem(300);
+
+        >.row {
+            &.title-holder {
+                margin-bottom: 1rem;
+            }
+            .col {
+                button {
+                    margin-bottom: 1rem;
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}

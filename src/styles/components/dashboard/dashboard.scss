@@ -1,0 +1,123 @@
+.dashboard-container,
+.dashboard-item-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .gadgetPanel {
+        margin: calculateRem(10);
+        min-height: calculateRem(350);
+        border-radius: calculateRem(5);
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        @import "../shared/chart.scss";
+    }
+    > .pagination-holder {
+        margin: 1rem;
+    }
+    > .custom-breadcrumb {
+        &.dashboard-breadcrumb {
+            margin: 0 1rem;
+        }
+    }
+    > .dashboards-holder {
+        flex-wrap: wrap;
+
+        .card {
+            &.dashboard-card {
+                min-height: calculateRem(135);
+                min-width: calculateRem(300);
+                margin: 1rem;
+
+                &.empty-card {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                > .card-body {
+                    > .card-subtitle {
+                        margin: 0.5rem 0;
+                    }
+
+                    .chart-holder {
+                        height: calculateRem(300);
+                        padding-top: 1.25rem;
+                    }
+                    .controls-holder {
+                        align-items: flex-end;
+                        justify-content: flex-start;
+
+                        .icon-holder {
+                            text-align: left;
+                            width: auto;
+                            align-items: center;
+                            svg {
+                                fill: currentColor;
+                                width: auto;
+                                margin-right: calculateRem(8);
+                                width: 18px;
+                                height: 18px;
+                            }
+                        }
+
+                        > #deleteDashbordBtn {
+                            min-height: auto;
+                            margin-left: auto;
+                            color: $danger;
+                            svg {
+                                fill: currentColor;
+                            }
+                        }
+                    }
+                }
+
+                > .card-header {
+                    &:first-child {
+                        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+                    }
+
+                    padding: 0.75rem 1.25rem;
+                    margin-bottom: 0;
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+                    .card-action {
+                        > button {
+                            min-height: calculateRem(20) !important;
+                            min-width: calculateRem(20) !important;
+                            padding: 0;
+                            .button-content {
+                                justify-content: flex-start;
+                            }
+                        }
+                        > .dropdown-menu {
+                            right: 0;
+                            left: unset;
+                        }
+                    }
+                }
+
+                a {
+                    text-align: right;
+                }
+
+                @import "../shared/chart.scss";
+            }
+        }
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    .dashboard-container,
+    .dashboard-item-container {
+        .row {
+            .gadgetPanel {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}

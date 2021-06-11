@@ -1,0 +1,137 @@
+$user-menu-icon-size: calculateRem(13);
+
+.header-container {
+    height: $header-height;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+
+    .logo-holder {
+        align-items: center;
+        .icon-holder {
+            margin-right: 1rem;
+            width: 1.2rem;
+
+            svg {
+                fill: $white;
+            }
+
+            cursor: pointer;
+        }
+    }
+
+    width: 100%;
+    background: $header-background;
+    padding-left: calculateRem(20);
+    padding-right: calculateRem(20);
+
+    .user-menu {
+        position: relative;
+        width: auto;
+        overflow: visible;
+
+        >button.btn.btn-link {
+            text-decoration: none;
+            color: $white;
+            height: 100%;
+            border-radius: 0;
+
+            &:hover {
+                background-color: $gray-800;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            >.button-content {
+                >.svg-holder {
+                    >svg {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+
+        >.user-menu-list {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: $white;
+            box-shadow: $shadow;
+            border-color: $gray-300;
+            border-style: solid;
+            border-width: 0;
+            transition: border-width 200ms;
+            z-index: 2;
+            width: 100%;
+
+            >a.user-menu-list-item {
+                overflow: hidden;
+                transition: max-height 200ms, padding 200ms linear, opacity 500ms ease-out,
+                    background-color 200ms linear;
+                background-color: $white;
+                color: $black;
+                display: block;
+                min-width: calculateRem(180);
+                will-change: max-height;
+
+                &:not(.divider) {
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $gray-300;
+                    }
+
+                    &:active,
+                    &.active {
+                        background-color: $gray-400;
+                    }
+                }
+
+                >svg {
+                    width: $user-menu-icon-size;
+                    height: $user-menu-icon-size;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &:not(.expanded) {
+            >.user-menu-list {
+                >a.user-menu-list-item {
+                    opacity: 0;
+                    max-height: 0;
+
+                    &:not(.divider) {
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+
+        &.expanded {
+            >button.btn.btn-anchor {
+                background-color: $gray-800;
+            }
+
+            >.user-menu-list {
+                border-width: 1px;
+
+                >a.user-menu-list-item {
+                    max-height: 35px;
+
+                    &:not(.divider) {
+                        padding: 5px 15px;
+                    }
+
+                    &.divider {
+                        border-top: 1px solid $gray-500;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import "~@sebgroup/bootstrap/scss/_variables";
+
+.modal-content {
+    .modal-body {
+        overflow: visible;
+
+        .add-and-edit-device,
+        .add-and-edit-dashboard-item {
+            .custom-step-tracker {
+                &.horizontal {
+                    //  padding: 0 30px;
+                }
+
+                .step-wrapper {
+                    .line {
+                        z-index: 0;
+                    }
+                }
+            }
+            .title-holder {
+                margin: 1rem 0;
+                font-weight: 700;
+                border-bottom: 1px solid $gray-300;
+            }
+            table {
+                tbody {
+                    tr {
+                        td {
+                            .action-column {
+                                justify-content: flex-end;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .controls-holder {
+                margin-top: 2rem;
+
+                .next-and-previous {
+                    button {
+                        &:last-child {
+                            margin-left: 1rem;
+                        }
+
+                        svg {
+                            fill: currentColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
